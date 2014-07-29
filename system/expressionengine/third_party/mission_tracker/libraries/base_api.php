@@ -12,7 +12,7 @@ class Base_api implements iApi_library {
 		ob_start();
 
 		// check if method exists
-		if (!method_exists($this, $method))
+		if (!method_exists($this, $method) || !is_callable(array($this, $method)))
 		{
 			$this->response('Method does not exist', 400);
 		}
